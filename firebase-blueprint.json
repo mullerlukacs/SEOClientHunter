@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and permissions",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "name"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Discovered SEO prospect with audit metrics and CRM status",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "businessName": { "type": "string" },
+        "website": { "type": "string" },
+        "domain": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "city": { "type": "string" },
+        "country": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "type": "string" },
+        "seoScore": { "type": "number" },
+        "leadScore": { "type": "number" },
+        "opportunityLevel": { "type": "string" },
+        "opportunityReasons": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "businessName", "website", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile records indexed by auth UID"
+    },
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Lead and audit entries"
+    }
+  }
+}

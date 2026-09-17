@@ -94,6 +94,7 @@ $metaDesc = $pageMetaDescription ?? ($seoSettings['meta_description'] ?? 'Discov
                     <?php endforeach; ?>
                 </ul>
                 <div class="d-flex align-items-center gap-2">
+                    <a href="/app" class="btn btn-sm btn-outline-primary px-3 py-2 text-nowrap fw-bold"><i class="fa-solid fa-cloud me-1"></i> Cloud App</a>
                     <?php if ($isLoggedIn): ?>
                         <a href="/dashboard" class="btn btn-outline-primary px-3 py-2"><i class="fa-solid fa-gauge me-1"></i> Dashboard</a>
                         <a href="/logout" class="btn btn-light px-3 py-2 text-secondary"><i class="fa-solid fa-right-from-bracket"></i></a>

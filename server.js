@@ -1,6 +1,7 @@
 import { spawn, execSync } from 'child_process';
 import http from 'http';
 import fs from 'fs';
+import path from 'path';
 
 const PHP_PORT = 8089;
 const PORT = parseInt(process.env.PORT || '3000', 10);
@@ -64,6 +65,24 @@ process.on('SIGTERM', () => {
 
 // Create reverse proxy server on external port 3000
 const server = http.createServer((req, res) => {
+  // Serve React Firebase SPA on /app, /spa, or built Vite assets
+  if (req.url === '/app' || req.url === '/spa' || req.url.startsWith('/assets/index-')) {
+    const targetFile = req.url.startsWith('/assets/') ? req.url : '/index.html';
+    const filePath = path.join(process.cwd(), 'dist', targetFile);
+    if (fs.existsSync(filePath)) {
+      const ext = path.extname(filePath);
+      const mimeTypes = {
+        '.html': 'text/html; charset=UTF-8',
+        '.js': 'application/javascript; charset=UTF-8',
+        '.css': 'text/css; charset=UTF-8',
+        '.json': 'application/json'
+      };
+      res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' });
+      fs.createReadStream(filePath).pipe(res);
+      return;
+    }
+  }
+
   const options = {
     hostname: '127.0.0.1',
     port: PHP_PORT,
