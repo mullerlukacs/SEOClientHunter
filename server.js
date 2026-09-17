@@ -15,7 +15,7 @@ function ensurePhpInstalled() {
   } catch (e) {
     console.log('PHP not detected in runtime container. Auto-installing PHP 8.2 CLI and SQLite extensions...');
     try {
-      execSync('apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends php8.2-cli php8.2-sqlite3 php8.2-curl php8.2-mbstring && ln -sf /usr/bin/php8.2 /usr/bin/php', { stdio: 'inherit' });
+      execSync('apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends php8.2-cli php8.2-sqlite3 php8.2-curl php8.2-mbstring php8.2-xml && ln -sf /usr/bin/php8.2 /usr/bin/php', { stdio: 'inherit' });
       console.log('PHP 8.2 environment auto-configured successfully.');
     } catch (installErr) {
       console.error('Warning during PHP auto-installation:', installErr);

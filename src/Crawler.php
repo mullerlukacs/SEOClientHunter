@@ -176,6 +176,26 @@ class Crawler {
         }
 
         // Suppress HTML5 parsing warnings in DOMDocument
+        if (!class_exists('DOMDocument')) {
+            // Regex fallback for environments without php-xml
+            if (preg_match('/<title[^>]*>(.*?)<\/title>/is', $html, $m)) {
+                $signals['title'] = trim(strip_tags($m[1]));
+                $signals['title_length'] = mb_strlen($signals['title']);
+            }
+            if (preg_match('/<meta[^>]+name=[\'"]description[\'"][^>]+content=[\'"](.*?)[\'"]/is', $html, $m)) {
+                $signals['meta_description'] = trim($m[1]);
+                $signals['meta_description_length'] = mb_strlen($signals['meta_description']);
+            }
+            if (preg_match_all('/<h1[^>]*>(.*?)<\/h1>/is', $html, $m)) {
+                $signals['h1_count'] = count($m[1]);
+                foreach ($m[1] as $h) {
+                    $txt = trim(strip_tags($h));
+                    if (!empty($txt)) $signals['h1_tags'][] = substr($txt, 0, 150);
+                }
+            }
+            return $signals;
+        }
+
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         @$dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
