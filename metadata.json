@@ -1,0 +1,6 @@
+{
+  "name": "SEO Client Hunter",
+  "description": "Production-ready PHP & MySQL SaaS platform for automated B2B SEO prospect discovery, deep website technical audit, lead opportunity scoring, AI outreach generation, and integrated pipeline CRM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,371 @@
+/**
+ * SEO Client Hunter - Application Stylesheet
+ * Modern SaaS UI & Responsive Dashboard Layout
+ */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #0f172a;
+    --accent-color: #f59e0b;
+    --sidebar-bg: #0f172a;
+    --sidebar-text: #94a3b8;
+    --sidebar-active: #ffffff;
+    --sidebar-active-bg: #1e293b;
+    --card-radius: 12px;
+    --btn-radius: 8px;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: #1e293b;
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar */
+.navbar-brand-custom {
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+    color: #0f172a !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.brand-icon-box {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #fff;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+    background: linear-gradient(90deg, #1e293b, #0f172a);
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    padding: 7px 16px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--btn-radius);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* Cards */
+.card-saas {
+    border: 1px solid #e2e8f0;
+    border-radius: var(--card-radius);
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-saas:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero Section */
+.hero-section {
+    background: radial-gradient(circle at top, #eff6ff 0%, #f8fafc 70%);
+    padding: 90px 0 70px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Score Pills & Badges */
+.score-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+.score-high {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+.score-med {
+    background-color: #fef9c3;
+    color: #a16207;
+    border: 1px solid #fef08a;
+}
+.score-low {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* Opportunity Tag */
+.badge-opp-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+.badge-opp-med {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+.badge-opp-low {
+    background-color: #e2e8f0;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Dashboard Layout */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+.dashboard-sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.sidebar-brand {
+    padding: 24px 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #1e293b;
+    text-decoration: none;
+}
+.sidebar-menu {
+    list-style: none;
+    padding: 16px 12px;
+    margin: 0;
+    flex-grow: 1;
+}
+.sidebar-heading {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    padding: 12px 14px 6px;
+}
+.sidebar-item {
+    margin-bottom: 4px;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: all 0.15s ease;
+}
+.sidebar-link i {
+    width: 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+.sidebar-link:hover {
+    color: #ffffff;
+    background-color: #1e293b;
+}
+.sidebar-link.active {
+    color: #ffffff;
+    background-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.dashboard-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #f8fafc;
+}
+.dashboard-topbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dashboard-content {
+    padding: 28px;
+    flex-grow: 1;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--card-radius);
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.metric-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+.metric-val {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #0f172a;
+}
+.metric-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* Status Badges */
+.badge-status-new { background-color: #e0f2fe; color: #0369a1; }
+.badge-status-qualified { background-color: #ede9fe; color: #6d28d9; }
+.badge-status-contacted { background-color: #fef3c7; color: #b45309; }
+.badge-status-replied { background-color: #fef08a; color: #854d0e; }
+.badge-status-interested { background-color: #dcfce7; color: #15803d; }
+.badge-status-proposal { background-color: #fbcfe8; color: #be185d; }
+.badge-status-won { background-color: #bbf7d0; color: #166534; font-weight: 700; }
+.badge-status-lost { background-color: #f1f5f9; color: #64748b; }
+
+/* Audit Issues List */
+.issue-card {
+    border-left: 4px solid #cbd5e1;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 12px;
+    border-top: 1px solid #f1f5f9;
+    border-right: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+}
+.issue-critical { border-left-color: #ef4444; }
+.issue-high { border-left-color: #f97316; }
+.issue-medium { border-left-color: #eab308; }
+.issue-low { border-left-color: #3b82f6; }
+.issue-passed { border-left-color: #22c55e; }
+
+/* Copy box */
+.copy-box {
+    position: relative;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px;
+    font-family: inherit;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.92rem;
+    color: #334155;
+}
+.btn-copy {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.8rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 28px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 2px;
+    background-color: #e2e8f0;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 3px solid var(--primary-color);
+}
+
+/* Ads Box */
+.ad-banner-box {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    margin: 16px 0;
+}
+.ad-badge {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .dashboard-sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        bottom: 0;
+        z-index: 1050;
+    }
+    .dashboard-sidebar.show {
+        left: 0;
+    }
+}
